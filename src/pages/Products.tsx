@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Search, Filter, Plus, Star, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -142,6 +141,174 @@ const Products = () => {
       ],
       rating: 4.8,
       discount: 10
+    },
+    {
+      id: '9',
+      name: 'Pão Italiano com Azeitona',
+      price: 12.00,
+      category: 'paes-italianos',
+      description: 'Pão italiano artesanal com azeitonas pretas, sabor marcante e textura única.',
+      images: [
+        'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.6,
+      discount: 5
+    },
+    {
+      id: '10',
+      name: 'Pão Recheado de Presunto e Queijo',
+      price: 14.50,
+      category: 'paes-recheados',
+      description: 'Pão macio recheado com presunto e queijo derretido. Ideal para um lanche completo.',
+      images: [
+        'https://images.unsplash.com/photo-1596188805550-5ac9b3a1a1fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.7,
+      discount: 8
+    },
+    {
+      id: '11',
+      name: 'Pão Recheado de Frango com Catupiry',
+      price: 16.00,
+      category: 'paes-recheados',
+      description: 'Pão recheado com frango desfiado e catupiry cremoso. Uma explosão de sabor.',
+      images: [
+        'https://images.unsplash.com/photo-1596188805550-5ac9b3a1a1fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.8,
+      discount: 12
+    },
+    {
+      id: '12',
+      name: 'Pão Francês Integral',
+      price: 1.00,
+      category: 'paes-frances',
+      description: 'Versão integral do clássico pão francês, mais nutritivo e saboroso.',
+      images: [
+        'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.4,
+      discount: 0
+    },
+    {
+      id: '13',
+      name: 'Pão Francês com Gergelim',
+      price: 0.85,
+      category: 'paes-frances',
+      description: 'Pão francês tradicional coberto com gergelim torrado. Sabor especial.',
+      images: [
+        'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.5,
+      discount: 0
+    },
+    {
+      id: '14',
+      name: 'Torta de Morango',
+      price: 38.00,
+      category: 'tortas-doces',
+      description: 'Torta doce com morangos frescos e chantilly. Perfeita para sobremesa.',
+      images: [
+        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.9,
+      discount: 15
+    },
+    {
+      id: '15',
+      name: 'Torta de Limão',
+      price: 32.00,
+      category: 'tortas-doces',
+      description: 'Torta refrescante de limão com merengue. Sabor cítrico irresistível.',
+      images: [
+        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.7,
+      discount: 10
+    },
+    {
+      id: '16',
+      name: 'Torta de Carne Seca',
+      price: 42.00,
+      category: 'tortas-salgadas',
+      description: 'Torta salgada com carne seca desfiada e temperos especiais. Sabor único.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.8,
+      discount: 18
+    },
+    {
+      id: '17',
+      name: 'Torta de Palmito',
+      price: 36.00,
+      category: 'tortas-salgadas',
+      description: 'Torta salgada com palmito e queijo. Opção vegetariana deliciosa.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.5,
+      discount: 12
+    },
+    {
+      id: '18',
+      name: 'Massa de Nhoque Fresca',
+      price: 16.00,
+      category: 'massas',
+      description: 'Nhoque caseiro feito com batata selecionada. Textura macia e saborosa.',
+      images: [
+        'https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.6,
+      discount: 0
+    },
+    {
+      id: '19',
+      name: 'Massa de Ravioli',
+      price: 22.00,
+      category: 'massas',
+      description: 'Ravioli recheado com ricota e espinafre. Massa artesanal premium.',
+      images: [
+        'https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.9,
+      discount: 8
+    },
+    {
+      id: '20',
+      name: 'Guaraná Antarctica 350ml',
+      price: 4.00,
+      category: 'refrigerantes',
+      description: 'Refrigerante de guaraná gelado, sabor brasileiro autêntico.',
+      images: [
+        'https://images.unsplash.com/photo-1624552161102-c4aae37b2308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.2,
+      discount: 0
+    },
+    {
+      id: '21',
+      name: 'Suco Natural de Laranja 500ml',
+      price: 6.50,
+      category: 'refrigerantes',
+      description: 'Suco natural de laranja espremido na hora. Vitamina C pura.',
+      images: [
+        'https://images.unsplash.com/photo-1624552161102-c4aae37b2308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.8,
+      discount: 0
+    },
+    {
+      id: '22',
+      name: 'Água Mineral 500ml',
+      price: 2.50,
+      category: 'refrigerantes',
+      description: 'Água mineral gelada, perfeita para acompanhar qualquer refeição.',
+      images: [
+        'https://images.unsplash.com/photo-1624552161102-c4aae37b2308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.0,
+      discount: 0
     }
   ];
 
