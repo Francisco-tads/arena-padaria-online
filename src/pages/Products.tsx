@@ -41,6 +41,8 @@ const Products = () => {
     { id: 'tortas-salgadas', name: 'Tortas Salgadas' },
     { id: 'massas', name: 'Massas' },
     { id: 'refrigerantes', name: 'Refrigerantes' },
+    { id: 'bolos', name: 'Bolos' },
+    { id: 'salgados', name: 'Salgados' },
   ];
 
   const products = [
@@ -309,6 +311,102 @@ const Products = () => {
       ],
       rating: 4.0,
       discount: 0
+    },
+    {
+      id: '23',
+      name: 'Bolo de Chocolate',
+      price: 25.00,
+      category: 'bolos',
+      description: 'Bolo de chocolate com cobertura cremosa. Ideal para festas e comemorações.',
+      images: [
+        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.7,
+      discount: 12
+    },
+    {
+      id: '24',
+      name: 'Bolo de Cenoura',
+      price: 22.00,
+      category: 'bolos',
+      description: 'Bolo de cenoura tradicional com calda de chocolate. Sabor caseiro.',
+      images: [
+        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.6,
+      discount: 8
+    },
+    {
+      id: '25',
+      name: 'Coxinha de Frango',
+      price: 6.50,
+      category: 'salgados',
+      description: 'Coxinha tradicional com frango desfiado temperado. Crocante e saborosa.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.8,
+      discount: 0
+    },
+    {
+      id: '26',
+      name: 'Pastel de Carne',
+      price: 7.00,
+      category: 'salgados',
+      description: 'Pastel assado com recheio de carne moída temperada. Massa crocante.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.5,
+      discount: 5
+    },
+    {
+      id: '27',
+      name: 'Empada de Palmito',
+      price: 8.00,
+      category: 'salgados',
+      description: 'Empada caseira com recheio cremoso de palmito. Opção vegetariana.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.4,
+      discount: 0
+    },
+    {
+      id: '28',
+      name: 'Pão Italiano com Ervas',
+      price: 10.00,
+      category: 'paes-italianos',
+      description: 'Pão italiano aromático com mix de ervas finas. Sabor diferenciado.',
+      images: [
+        'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.7,
+      discount: 6
+    },
+    {
+      id: '29',
+      name: 'Bolo Red Velvet',
+      price: 35.00,
+      category: 'bolos',
+      description: 'Bolo red velvet com cream cheese. Uma experiência única de sabor e textura.',
+      images: [
+        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.9,
+      discount: 15
+    },
+    {
+      id: '30',
+      name: 'Salgadinho de Queijo',
+      price: 5.50,
+      category: 'salgados',
+      description: 'Salgadinho crocante recheado com queijo derretido. Perfeito para o lanche.',
+      images: [
+        'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      ],
+      rating: 4.3,
+      discount: 0
     }
   ];
 
@@ -351,7 +449,7 @@ const Products = () => {
                   Nossos Produtos
                 </h1>
                 <p className="text-bakery-gold-light/80">
-                  Descubra nossa seleção de pães, tortas e delícias artesanais
+                  Descubra nossa seleção completa de pães, tortas, bolos, salgados e delícias artesanais
                 </p>
               </div>
               <Cart />
