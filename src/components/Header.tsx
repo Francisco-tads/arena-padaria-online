@@ -69,7 +69,6 @@ const Header = () => {
                   className={`text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium ${
                     location.pathname === item.href ? 'text-bakery-gold' : ''
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
