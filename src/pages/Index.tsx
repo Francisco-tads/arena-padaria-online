@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -28,6 +27,17 @@ const Index = () => {
       discount: 'Promoção'
     }
   ];
+
+  const handleWhatsAppOrder = () => {
+    const message = `🍞 Olá! Gostaria de fazer um pedido na Panificadora Arena!
+
+Estou interessado(a) em conhecer os produtos disponíveis e fazer um pedido.
+
+Obrigado!`;
+    
+    const whatsappUrl = `https://wa.me/5511991298838?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-bakery-dark text-bakery-gold-light font-inter">
@@ -83,11 +93,9 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg"
-                asChild
+                onClick={handleWhatsAppOrder}
               >
-                <a href="https://wa.me/5511991298838" target="_blank" rel="noopener noreferrer">
-                  Fazer Pedido
-                </a>
+                Fazer Pedido
               </Button>
             </div>
           </div>
