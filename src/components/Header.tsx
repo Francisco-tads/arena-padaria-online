@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Search, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
@@ -11,8 +11,8 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Produtos', href: '/produtos' },
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Contato', href: '#contato' },
+    { name: 'Sobre', href: '/#sobre' },
+    { name: 'Contato', href: '/#contato' },
   ];
 
   const socialLinks = [
@@ -20,6 +20,22 @@ const Header = () => {
     { icon: Facebook, href: '#', color: 'text-blue-500' },
     { icon: MessageCircle, href: 'https://wa.me/5511991298838', color: 'text-green-500' },
   ];
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      const elementId = href.substring(2);
+      if (location.pathname !== '/') {
+        window.location.href = href;
+      } else {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 w-full bg-bakery-dark/95 backdrop-blur-sm z-50 border-b border-bakery-gold/20">
@@ -38,15 +54,25 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium ${
-                  location.pathname === item.href ? 'text-bakery-gold' : ''
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.href.startsWith('/#') ? (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium cursor-pointer"
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium ${
+                    location.pathname === item.href ? 'text-bakery-gold' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -86,14 +112,24 @@ const Header = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-bakery-dark border-b border-bakery-gold/20 animate-fade-in">
             <nav className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="block text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                item.href.startsWith('/#') ? (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.href)}
+                    className="block text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium py-2 text-left w-full"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block text-bakery-gold-light hover:text-bakery-gold transition-colors duration-200 font-medium py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
               <div className="flex items-center space-x-4 pt-4 border-t border-bakery-gold/20">
                 {socialLinks.map((social, index) => (

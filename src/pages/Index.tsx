@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Clock, MapPin, Star, ChefHat, Heart, Award } from 'lucide-react';
+import { Clock, MapPin, Star, ChefHat, Heart, Award, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -162,12 +162,24 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-4xl font-playfair font-bold text-bakery-gold">
-                Tradição e Qualidade
+                Nossa História
               </h2>
-              <p className="text-bakery-gold-light/80 text-lg leading-relaxed">
-                Na Panificadora Arena, cada produto é feito com dedicação e os melhores ingredientes. 
-                Nossa tradição familiar garante sabores únicos que conquistam paladares há anos.
-              </p>
+              <div className="space-y-4 text-bakery-gold-light/80 text-lg leading-relaxed">
+                <p>
+                  A Panificadora Arena nasceu em 2009 de um sonho familiar: levar aos nossos clientes 
+                  o sabor autêntico dos pães artesanais, feitos com amor e tradição italiana.
+                </p>
+                <p>
+                  Localizada na Rua Tommasso Giodanni, nossa padaria se tornou referência na região 
+                  por manter a qualidade e frescor em todos os nossos produtos. Cada pão é cuidadosamente 
+                  preparado com ingredientes selecionados e técnicas tradicionais passadas de geração em geração.
+                </p>
+                <p>
+                  Ao longo de mais de 15 anos, conquistamos a confiança de milhares de famílias, 
+                  oferecendo não apenas produtos de excelência, mas também um atendimento caloroso 
+                  que faz parte da nossa essência.
+                </p>
+              </div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-bakery-gold">15+</div>
@@ -191,6 +203,86 @@ const Index = () => {
                 alt="Interior da panificadora"
                 className="w-full h-96 object-cover rounded-3xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contato" className="py-20 bg-bakery-brown/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-playfair font-bold text-bakery-gold mb-4">
+              Entre em Contato
+            </h2>
+            <p className="text-bakery-gold-light/80 max-w-2xl mx-auto">
+              Estamos sempre prontos para atendê-lo. Visite nossa loja ou entre em contato conosco
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="w-6 h-6 text-bakery-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-bakery-gold font-semibold text-lg mb-2">Endereço</h3>
+                    <p className="text-bakery-gold-light/80">
+                      Rua Tommasso Giodanni<br />
+                      São Paulo, SP
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Phone className="w-6 h-6 text-bakery-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-bakery-gold font-semibold text-lg mb-2">Telefone</h3>
+                    <p className="text-bakery-gold-light/80">
+                      <a href="tel:5511991298838" className="hover:text-bakery-gold transition-colors">
+                        (11) 99129-8838
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Clock className="w-6 h-6 text-bakery-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-bakery-gold font-semibold text-lg mb-2">Horário de Funcionamento</h3>
+                    <div className="text-bakery-gold-light/80 space-y-1">
+                      <p>Segunda a Sábado: 06h às 19h</p>
+                      <p>Domingos: 06h às 12h</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-bakery-gold/20">
+                <Button 
+                  className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3"
+                  asChild
+                >
+                  <a href="https://wa.me/5511991298838" target="_blank" rel="noopener noreferrer">
+                    Chamar no WhatsApp
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="h-96 rounded-3xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1!2d-46.6333!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzcnNTkuOSJX!5e0!3m2!1spt!2sbr!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
