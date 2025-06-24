@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, Filter, Plus, Star, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import Cart from '@/components/Cart';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
+import { useSearchParams } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -26,11 +27,20 @@ import {
 } from '@/components/ui/carousel';
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addItem } = useCart();
   const { toast } = useToast();
+
+  // Initialize search term from URL parameter
+  useEffect(() => {
+    const urlSearchTerm = searchParams.get('search');
+    if (urlSearchTerm) {
+      setSearchTerm(urlSearchTerm);
+    }
+  }, [searchParams]);
 
   const categories = [
     { id: 'todos', name: 'Todos os Produtos' },
@@ -451,6 +461,11 @@ const Products = () => {
                 <p className="text-bakery-gold-light/80">
                   Descubra nossa seleção completa de pães, tortas, bolos, salgados e delícias artesanais
                 </p>
+                {searchTerm && (
+                  <p className="text-bakery-gold mt-2">
+                    Resultados para: "{searchTerm}"
+                  </p>
+                )}
               </div>
               <Cart />
             </div>
