@@ -42,7 +42,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
             <div className="w-10 h-10 bg-bakery-gold rounded-full flex items-center justify-center">
               <span className="text-bakery-dark font-bold text-lg">🍞</span>
             </div>
