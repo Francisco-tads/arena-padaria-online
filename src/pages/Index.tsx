@@ -90,13 +90,14 @@ Obrigado!`;
                   Ver Cardápio
                 </Button>
               </Link>
-              <Button 
-                variant="outline" 
-                className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg"
-                onClick={handleWhatsAppOrder}
-              >
-                Fazer Pedido
-              </Button>
+              <Link to="/produtos">
+                <Button 
+                  variant="outline" 
+                  className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg"
+                >
+                  Fazer Pedido
+                </Button>
+              </Link>
             </div>
           </div>
 
