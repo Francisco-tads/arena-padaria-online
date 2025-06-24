@@ -28,17 +28,6 @@ const Index = () => {
     }
   ];
 
-  const handleWhatsAppOrder = () => {
-    const message = `🍞 Olá! Gostaria de fazer um pedido na Panificadora Arena!
-
-Estou interessado(a) em conhecer os produtos disponíveis e fazer um pedido.
-
-Obrigado!`;
-    
-    const whatsappUrl = `https://wa.me/5511991298838?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
     <div className="min-h-screen bg-bakery-dark text-bakery-gold-light font-inter">
       <Header />
@@ -86,14 +75,14 @@ Obrigado!`;
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/produtos">
-                <Button className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg">
+                <Button className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg w-full sm:w-auto">
                   Ver Cardápio
                 </Button>
               </Link>
               <Link to="/produtos">
                 <Button 
                   variant="outline" 
-                  className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg"
+                  className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg w-full sm:w-auto"
                 >
                   Fazer Pedido
                 </Button>
