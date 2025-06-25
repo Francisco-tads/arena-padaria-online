@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -74,19 +75,19 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/produtos">
-                <Button className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg w-full sm:w-auto">
-                  Ver Cardápio
-                </Button>
-              </Link>
-              <Link to="/produtos">
-                <Button 
-                  variant="outline" 
-                  className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg w-full sm:w-auto"
-                >
-                  Fazer Pedido
-                </Button>
-              </Link>
+              <Button 
+                className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
+                asChild
+              >
+                <Link to="/produtos">Ver Cardápio</Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg w-full sm:w-auto"
+                asChild
+              >
+                <Link to="/produtos">Fazer Pedido</Link>
+              </Button>
             </div>
           </div>
 
