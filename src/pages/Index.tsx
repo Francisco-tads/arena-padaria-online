@@ -29,6 +29,10 @@ const Index = () => {
     }
   ];
 
+  const handleButtonClick = (buttonName: string) => {
+    console.log(`${buttonName} button clicked`);
+  };
+
   return (
     <div className="min-h-screen bg-bakery-dark text-bakery-gold-light font-inter">
       <Header />
@@ -78,6 +82,7 @@ const Index = () => {
               <Button 
                 className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
                 asChild
+                onClick={() => handleButtonClick('Ver Cardápio')}
               >
                 <Link to="/produtos">Ver Cardápio</Link>
               </Button>
@@ -85,6 +90,7 @@ const Index = () => {
                 variant="outline" 
                 className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg w-full sm:w-auto"
                 asChild
+                onClick={() => handleButtonClick('Fazer Pedido')}
               >
                 <Link to="/produtos">Fazer Pedido</Link>
               </Button>
