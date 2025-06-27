@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -29,8 +28,15 @@ const Index = () => {
     }
   ];
 
-  const handleButtonClick = (buttonName: string) => {
-    console.log(`${buttonName} button clicked`);
+  const handleWhatsAppOrder = () => {
+    const message = `🍞 Olá! Gostaria de fazer um pedido na Panificadora Arena!
+
+Estou interessado(a) em conhecer os produtos disponíveis e fazer um pedido.
+
+Obrigado!`;
+    
+    const whatsappUrl = `https://wa.me/5511991298838?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -79,20 +85,17 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg w-full sm:w-auto"
-                asChild
-                onClick={() => handleButtonClick('Ver Cardápio')}
-              >
-                <Link to="/produtos">Ver Cardápio</Link>
-              </Button>
+              <Link to="/produtos">
+                <Button className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90 font-semibold px-8 py-3 text-lg">
+                  Ver Cardápio
+                </Button>
+              </Link>
               <Button 
                 variant="outline" 
-                className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg w-full sm:w-auto"
-                asChild
-                onClick={() => handleButtonClick('Fazer Pedido')}
+                className="border-bakery-gold text-bakery-gold hover:bg-bakery-gold hover:text-bakery-dark px-8 py-3 text-lg"
+                onClick={handleWhatsAppOrder}
               >
-                <Link to="/produtos">Fazer Pedido</Link>
+                Fazer Pedido
               </Button>
             </div>
           </div>

@@ -2,15 +2,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Search, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
-  const navigate = useNavigate();
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -38,23 +34,6 @@ const Header = () => {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }
-    }
-  };
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      navigate(`/produtos?search=${encodeURIComponent(searchTerm.trim())}`);
-      setIsSearchOpen(false);
-      setSearchTerm('');
-      setIsMenuOpen(false);
-    }
-  };
-
-  const handleSearchIconClick = () => {
-    setIsSearchOpen(!isSearchOpen);
-    if (isSearchOpen) {
-      setSearchTerm('');
     }
   };
 
@@ -100,30 +79,7 @@ const Header = () => {
           {/* Search and Social Icons */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="relative">
-              {isSearchOpen ? (
-                <form onSubmit={handleSearch} className="flex items-center space-x-2">
-                  <Input
-                    type="text"
-                    placeholder="Buscar produtos..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-48 bg-bakery-dark/50 border-bakery-gold/30 text-bakery-gold-light"
-                    autoFocus
-                  />
-                  <Button
-                    type="submit"
-                    size="sm"
-                    className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90"
-                  >
-                    <Search className="w-4 h-4" />
-                  </Button>
-                </form>
-              ) : (
-                <Search 
-                  className="w-5 h-5 text-bakery-gold-light cursor-pointer hover:text-bakery-gold transition-colors" 
-                  onClick={handleSearchIconClick}
-                />
-              )}
+              <Search className="w-5 h-5 text-bakery-gold-light cursor-pointer hover:text-bakery-gold transition-colors" />
             </div>
             <div className="flex items-center space-x-3">
               {socialLinks.map((social, index) => (
@@ -155,24 +111,6 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-bakery-dark border-b border-bakery-gold/20 animate-fade-in">
             <nav className="px-4 py-6 space-y-4">
-              {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="flex items-center space-x-2 pb-4 border-b border-bakery-gold/20">
-                <Input
-                  type="text"
-                  placeholder="Buscar produtos..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="flex-1 bg-bakery-dark/50 border-bakery-gold/30 text-bakery-gold-light"
-                />
-                <Button
-                  type="submit"
-                  size="sm"
-                  className="bg-bakery-gold text-bakery-dark hover:bg-bakery-gold/90"
-                >
-                  <Search className="w-4 h-4" />
-                </Button>
-              </form>
-
               {navItems.map((item) => (
                 item.href.startsWith('/#') ? (
                   <button

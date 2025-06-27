@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Search, Filter, Plus, Star, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,7 +9,6 @@ import Footer from '@/components/Footer';
 import Cart from '@/components/Cart';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
-import { useSearchParams } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -27,20 +26,11 @@ import {
 } from '@/components/ui/carousel';
 
 const Products = () => {
-  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addItem } = useCart();
   const { toast } = useToast();
-
-  // Initialize search term from URL parameter
-  useEffect(() => {
-    const urlSearchTerm = searchParams.get('search');
-    if (urlSearchTerm) {
-      setSearchTerm(urlSearchTerm);
-    }
-  }, [searchParams]);
 
   const categories = [
     { id: 'todos', name: 'Todos os Produtos' },
@@ -53,7 +43,6 @@ const Products = () => {
     { id: 'refrigerantes', name: 'Refrigerantes' },
     { id: 'bolos', name: 'Bolos' },
     { id: 'salgados', name: 'Salgados' },
-    { id: 'cafes', name: 'Cafés' },
   ];
 
   const products = [
@@ -418,54 +407,6 @@ const Products = () => {
       ],
       rating: 4.3,
       discount: 0
-    },
-    {
-      id: '31',
-      name: 'Café Expresso Premium',
-      price: 5.50,
-      category: 'cafes',
-      description: 'Café expresso tradicional com grãos selecionados e torrados na hora. Sabor intenso e aroma marcante.',
-      images: [
-        'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      rating: 4.9,
-      discount: 0
-    },
-    {
-      id: '32',
-      name: 'Cappuccino Artesanal',
-      price: 8.00,
-      category: 'cafes',
-      description: 'Cappuccino cremoso com espuma de leite vaporizado e pitada de canela. Uma experiência única.',
-      images: [
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      rating: 4.8,
-      discount: 10
-    },
-    {
-      id: '33',
-      name: 'Café com Leite Especial',
-      price: 6.50,
-      category: 'cafes',
-      description: 'Café com leite cremoso feito com café premium e leite vaporizado. Perfeito para qualquer hora.',
-      images: [
-        'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      rating: 4.7,
-      discount: 5
-    },
-    {
-      id: '34',
-      name: 'Café Gelado Gourmet',
-      price: 7.50,
-      category: 'cafes',
-      description: 'Café gelado refrescante com gelo, leite e xarope de baunilha. Ideal para dias quentes.',
-      images: [
-        'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-      ],
-      rating: 4.6,
-      discount: 8
     }
   ];
 
@@ -508,13 +449,8 @@ const Products = () => {
                   Nossos Produtos
                 </h1>
                 <p className="text-bakery-gold-light/80">
-                  Descubra nossa seleção completa de pães, tortas, bolos, salgados, cafés e delícias artesanais
+                  Descubra nossa seleção completa de pães, tortas, bolos, salgados e delícias artesanais
                 </p>
-                {searchTerm && (
-                  <p className="text-bakery-gold mt-2">
-                    Resultados para: "{searchTerm}"
-                  </p>
-                )}
               </div>
               <Cart />
             </div>
